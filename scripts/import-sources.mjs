@@ -50,7 +50,10 @@ for (const sub of ['assets/source', 'assets/recreated']) for (const src of files
 for (const name of ['examples-gallery.md', 'coverage-map.md']) {
   const src = path.join(refs, name);
   const body = text(src).replace(/\]\(\.\.\/assets\//g, '](assets/').replace(/\]\(principles\/([^)#]+)(#[^)]*)?\)/g, '](playbook-chapter:$1$2)');
-  write(path.join(visuals, name), Buffer.from(body.replace(/playbook-chapter:/g, '../../../shared/references/playbook/principles/')), {
+  // The pack is exported on its own, so principle links become plain IDs that point at the core skills' playbook.
+  const portable = body.replace(/\[([A-Z]{2,4}-\d{2}[a-z]?)\]\(playbook-chapter:[^)]+\)/g, '`$1`')
+    .replace(/Back to the \[index\]\(index\.md\)\./g, 'Principle IDs refer to the playbook in the core skills (`resources/references/playbook/index.md`).');
+  write(path.join(visuals, name), Buffer.from(portable), {
     id: `principles:${name}`, origin: 'ui-ux-principles 1.0.0', original_path: posix(src), sha256: hash(fs.readFileSync(src)),
     disposition: 'adapted', license: 'Personal use', rationale: 'Gallery/coverage map belong with the images'
   });

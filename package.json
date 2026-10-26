@@ -1,15 +1,18 @@
 {
-  "name": "ui-ux-meta-architect",
-  "version": "1.0.0",
+  "name": "ui-ux-master",
+  "version": "2.0.0",
   "private": true,
-  "description": "Portable UI/UX agent skill collection derived from the local source inventory",
+  "description": "UI/UX agent skill collection: meta-architect workflows plus the UI/UX Playbook principles, better-ui polish and an eval-driven quality bar",
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "validate": "node scripts/validate.mjs",
-    "test": "node --test tests/portability.test.mjs tests/picker-logic.test.mjs",
+    "test": "node --test tests/portability.test.mjs tests/picker-logic.test.mjs tests/master.test.mjs",
     "export:codex": "node scripts/setup.mjs --platform codex --project exports/codex --apply",
     "export:claude": "node scripts/setup.mjs --platform claude --project exports/claude --apply",
-    "export:cursor": "node scripts/setup.mjs --platform cursor --project exports/cursor --apply"
+    "export:cursor": "node scripts/setup.mjs --platform cursor --project exports/cursor --apply",
+    "export:plugin": "node scripts/package-plugin.mjs"
   }
 }

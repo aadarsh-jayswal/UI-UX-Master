@@ -5,12 +5,13 @@ description: Design or implement distinctive interfaces with strong visual narra
 
 # UI Design Toolkit
 
-Own the concrete interface artifact. Read [coordination](../../shared/references/coordination.md) and [policy](../../shared/references/policy.md). Resolve the requested output before loading a mode.
+Own the concrete interface artifact. Read [coordination](../../shared/references/coordination.md), [policy](../../shared/references/policy.md), and the section of the [quality bar](../../shared/references/quality-bar.md) for the selected mode (design specification, UI implementation or scoped edit). Resolve the requested output before loading a mode.
 
 | Mode | Load | Output |
 |---|---|---|
-| design | [interface procedure](../../shared/references/interface.md); [taxonomy](../../shared/references/page-taxonomy.md) only when classifying pages | Task flow, screen/state decisions, or specification |
-| implement | [baseline](../../shared/references/baseline-ui.md) and only relevant interface sections | Working scoped source changes |
+| design | [interface procedure](../../shared/references/interface.md); [playbook task router](../../shared/references/playbook/task-router.md); [discovery interview](../../shared/references/discovery-interview.md) only when a user can answer; [taxonomy](../../shared/references/page-taxonomy.md) only when classifying pages | Task flow, screen/state decisions, or specification with every flow-changing state and an accessibility section |
+| implement | [baseline](../../shared/references/baseline-ui.md), [polish](../../shared/references/polish.md), relevant [playbook](../../shared/references/playbook/task-router.md) principles and interface sections | Working scoped source changes verified with [page-eval.mjs](../../shared/scripts/page-eval.mjs) and [audit-rendered-ui.js](../../shared/scripts/audit-rendered-ui.js) at desktop and 390px |
+| edit | The scoped-edit section of the quality bar | Only the requested change, diffed against the original |
 | copy | Copy section of [interface procedure](../../shared/references/interface.md) | Exact wording, alternatives when helpful, localization notes |
 | explore | Exploration section of [interface procedure](../../shared/references/interface.md); [picker](../../shared/templates/prototype-picker.html) | Distinct working variants in an isolated harness |
 | handoff | [interface procedure](../../shared/references/interface.md), [component spec](../../shared/templates/component-spec.md) or [plan](../../shared/templates/implementation-plan.md) | Engineering-ready specification |

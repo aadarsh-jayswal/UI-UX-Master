@@ -1,13 +1,14 @@
 /*
- * Rendered-UI audit for the UI-UX Principles plugin.
+ * Rendered-UI audit for the ui-ux-master collection (from the UI-UX Principles plugin).
  *
  * Evaluate this whole file in the page context of a rendered interface
  * (browser devtools console, Playwright `page.evaluate(src)`, or any
  * browser tool's "run JavaScript"). The expression returns
  *   { url, viewport, findings: [{ id, severity, message, sample }], checked }
- * where `id` is a knowledge-base principle ID.
+ * where `id` is a playbook principle ID or a WCAG 2.2 success criterion (WCAG-x.y.z).
+ * Run it at a true viewport width with page-eval.mjs --audit --width 390.
  *
- * These are heuristics (see references/supplemental.md S-05): treat every
+ * These are heuristics: treat every
  * finding as a lead to confirm visually, and note that many principles
  * (hierarchy, relevance, layout intent) cannot be checked by script at all.
  */
@@ -215,10 +216,72 @@
     });
   });
 
+  // Non-text contrast, target size and accessible names: WCAG-1.4.11, WCAG-2.5.8, WCAG-4.1.2
+  const boundary = (el) => {
+    const s = getComputedStyle(el);
+    const w = parseFloat(s.borderTopWidth) || 0;
+    const border = w >= 1 && s.borderTopStyle !== "none" ? parseColor(s.borderTopColor) : null;
+    const fill = parseColor(s.backgroundColor);
+    return { border: border && border.a > 0 ? border : null, fill: fill && fill.a > 0 ? fill : null };
+  };
+  const outerBg = (el) => (el.parentElement ? effectiveBg(el.parentElement) : { r: 255, g: 255, b: 255, a: 1 });
+  const ntSeen = new Set();
+  document.querySelectorAll("input, select, textarea, [role=radio], [role=checkbox], [role=switch], [role=textbox], [role=combobox]").forEach((el) => {
+    if (!visible(el) || el.disabled || el.getAttribute("aria-disabled") === "true" || (el.type && /hidden|submit|button|reset|image/.test(el.type))) return;
+    const s = getComputedStyle(el);
+    const bg = outerBg(el);
+    if (bg.image) return;
+    const { border, fill } = boundary(el);
+    const native = /radio|checkbox/.test(el.type || "") && s.appearance !== "none";
+    if (native) return; // the browser draws native radio/checkbox indicators; verify custom ones only
+    const candidates = [border && blend(border, bg), fill && blend(fill, bg)].filter(Boolean);
+    if (!candidates.length) { add("WCAG-1.4.11", "medium", "control has no visible boundary (no border or fill); verify its edge or indicator has 3:1 against the background", el); return; }
+    const best = Math.max(...candidates.map((c) => ratio(c, bg)));
+    const key = describe(el).replace(/".*"/, "") + best.toFixed(2);
+    if (best < 3 && !ntSeen.has(key)) {
+      ntSeen.add(key);
+      const stateful = /radio|checkbox|switch/.test(el.type || el.getAttribute("role") || "");
+      add("WCAG-1.4.11", stateful && best < 2 ? "high" : "medium", `${stateful ? "unselected indicator" : "input boundary"} contrast ${best.toFixed(2)}:1 against its background (needs 3:1 when the boundary identifies the control)`, el, { ratio: Math.round(best * 100) / 100 });
+    }
+  });
+  // Custom indicators drawn by a sibling or pseudo element next to a hidden native input (common radio-card pattern)
+  document.querySelectorAll("input[type=radio], input[type=checkbox]").forEach((inp) => {
+    const s = getComputedStyle(inp);
+    if (visible(inp) && s.appearance !== "none" && parseFloat(s.opacity) > 0.05) return;
+    const ind = inp.nextElementSibling;
+    if (!ind || !visible(ind) || inp.checked) return;
+    const bg = outerBg(ind);
+    if (bg.image) return;
+    for (const pseudo of [null, "::before", "::after"]) {
+      const ps = getComputedStyle(ind, pseudo);
+      if (pseudo && (ps.content === "none" || ps.content === "normal")) continue;
+      const w = parseFloat(ps.borderTopWidth) || 0;
+      const c = w >= 1 && ps.borderTopStyle !== "none" ? parseColor(ps.borderTopColor) : null;
+      if (!c || c.a === 0) continue;
+      const r = ratio(blend(c, bg), bg);
+      if (r < 3) add("WCAG-1.4.11", r < 2 ? "high" : "medium", `unselected ${inp.type} indicator${pseudo || ""} border ${r.toFixed(2)}:1 (needs 3:1)`, inp.closest("label") || ind, { ratio: Math.round(r * 100) / 100 });
+      break;
+    }
+  });
+  document.querySelectorAll("a[href], button, input:not([type=hidden]), select, textarea, [role=button], [role=link], [role=radio], [role=checkbox], [role=switch], [role=tab], [role=menuitem]").forEach((el) => {
+    if (!visible(el)) return;
+    const r = el.getBoundingClientRect();
+    const inline = el.tagName === "A" && getComputedStyle(el).display === "inline" && el.closest("p, li");
+    if (!inline && (r.width < 24 || r.height < 24)) add("WCAG-2.5.8", r.width < 24 && r.height < 24 ? "medium" : "low", `target ${Math.round(r.width)}x${Math.round(r.height)}px (AA minimum 24x24 unless the spacing exception applies; 44x44 recommended for touch)`, el);
+    const name = (el.getAttribute("aria-label") || el.getAttribute("aria-labelledby") && document.getElementById(el.getAttribute("aria-labelledby"))?.innerText || el.innerText || el.value || el.getAttribute("title") || el.getAttribute("alt") || (el.labels && el.labels[0] && el.labels[0].innerText) || el.querySelector("img[alt]")?.getAttribute("alt") || "").trim();
+    if (!name && !el.closest("label")) add("WCAG-4.1.2", "high", "interactive element without an accessible name", el);
+  });
+  document.querySelectorAll("[aria-modal=true], dialog[open]").forEach((dlg) => {
+    if (!visible(dlg)) return;
+    if (!dlg.getAttribute("aria-labelledby") && !dlg.getAttribute("aria-label")) add("WCAG-4.1.2", "medium", "dialog without an accessible name (aria-labelledby the title)", dlg);
+    if (dlg.getBoundingClientRect().width > window.innerWidth) add("WCAG-1.4.10", "high", `dialog ${Math.round(dlg.getBoundingClientRect().width)}px wider than the ${window.innerWidth}px viewport`, dlg);
+  });
+  if (document.documentElement.scrollWidth > window.innerWidth + 1) add("WCAG-1.4.10", "high", `horizontal scroll: content ${document.documentElement.scrollWidth}px wide at ${window.innerWidth}px`);
+
   return {
     url: location.href,
     viewport: { width: window.innerWidth, height: window.innerHeight },
-    checked: ["TYP-03", "TYP-04", "TYP-07", "TYP-08", "TYP-09", "TYP-10", "TYP-11", "TYP-12", "TYP-13", "TYP-14", "CON-01", "CON-03", "ALN-03", "VH-01", "VH-04", "WS-03", "WS-04", "CNS-01", "CNS-02", "CLR-01", "DLG-01", "DLG-02", "MOB-01", "FRM-02", "FRM-03", "IC-09", "COL-04"],
+    checked: ["TYP-03", "TYP-04", "TYP-07", "TYP-08", "TYP-09", "TYP-10", "TYP-11", "TYP-12", "TYP-13", "TYP-14", "CON-01", "CON-03", "ALN-03", "VH-01", "VH-04", "WS-03", "WS-04", "CNS-01", "CNS-02", "CLR-01", "DLG-01", "DLG-02", "MOB-01", "FRM-02", "FRM-03", "IC-09", "COL-04", "WCAG-1.4.10", "WCAG-1.4.11", "WCAG-2.5.8", "WCAG-4.1.2"],
     note: "Heuristic leads only; confirm visually and review the principles that cannot be scripted (hierarchy intent, relevance, layout, consistency of meaning).",
     findings,
   };

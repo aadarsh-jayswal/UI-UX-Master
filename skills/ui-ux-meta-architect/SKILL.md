@@ -7,7 +7,7 @@ description: Coordinate UI/UX work spanning research, interface design, design s
 
 Own workflow selection, evidence, handoffs, and completion. Specialists own their deliverables. Use the smallest sufficient workflow; do not create another skill for a mode an existing specialist can cover.
 
-Read [coordination](../../shared/references/coordination.md) and [context policy](../../shared/references/policy.md) when coordinating. Resolve paths relative to this file, never the terminal's current directory.
+Read [coordination](../../shared/references/coordination.md) and [context policy](../../shared/references/policy.md) when coordinating. Every deliverable meets the [quality bar](../../shared/references/quality-bar.md) for its category and uses [clear writing](../../shared/references/clear-writing.md); pass both to the specialist you select. The [UI/UX playbook](../../shared/references/playbook/index.md) is the shared principle catalogue; its [task router](../../shared/references/playbook/task-router.md) picks the few principles a surface needs. Resolve paths relative to this file, never the terminal's current directory.
 
 ## Establish the task
 
@@ -21,8 +21,8 @@ For design and redesign, establish visual ambition, recognizable brand identity,
 |---|---|---|
 | Study planning or evidence synthesis | user-research | plan, synthesize |
 | Shared tokens/components/patterns or DESIGN.md | design-system | audit, document, extend, record |
-| Concrete UI, flow/state design, copy, prototypes, handoff, ordinary code, metadata | ui-design-toolkit | design, implement, explore, copy, handoff, metadata, select-library |
-| Existing-product critique or design drift audit | improve-ui | critique, audit, plan, reconcile |
+| Concrete UI, flow/state design, copy, prototypes, handoff, ordinary code, scoped edits, metadata | ui-design-toolkit | design, implement, edit, explore, copy, handoff, metadata, select-library |
+| Existing-product critique or design drift audit; explaining a UI principle | improve-ui | critique, audit, plan, reconcile, explain |
 | Accessibility assessment, fix, verification | fixing-accessibility | audit, remediate, verify |
 | Motion terminology, suggestions, implementation, performance, review | animate | vocabulary, discover, implement, performance, audit, plan, review, reconcile |
 
@@ -40,8 +40,8 @@ Preserve user requirements and product conventions using the context policy. Loa
 
 ## Optional integrations
 
-Read [integration contracts](../../shared/references/integrations.md) only for a relevant service/platform task. Confirm actual tools, skill availability, credentials, inputs, and side effects. Source files do not establish installation or authentication. Do not install dependencies, spend credits, publish, or send messages merely because integration instructions describe those actions. Complete independent work when access is missing and report the specific blocked step. Do not silently substitute providers.
+Read [integration contracts](../../shared/references/integrations.md) only for a relevant service/platform task. The optional `ui-ux-playbook-visuals` skill holds the playbook's source images; use it only when the user wants visual examples. Confirm actual tools, skill availability, credentials, inputs, and side effects. Source files do not establish installation or authentication. Do not install dependencies, spend credits, publish, or send messages merely because integration instructions describe those actions. Complete independent work when access is missing and report the specific blocked step. Do not silently substitute providers.
 
 ## Finish
 
-Check the selected completion criteria. Report delivered artifacts/changes, checks performed, and material limits. Distinguish plans from implementation, source inspection from runtime testing, and generated output from inspected output. For multi-stage work, every required output has an owner and status. Outside this collection, use another suitable existing workflow instead of inventing a new specialist.
+Check the selected completion criteria and the [quality bar](../../shared/references/quality-bar.md). Report delivered artifacts/changes, checks performed (a short table), and material limits. Distinguish plans from implementation, source inspection from runtime testing, and generated output from inspected output. For multi-stage work, every required output has an owner and status. Outside this collection, use another suitable existing workflow instead of inventing a new specialist.

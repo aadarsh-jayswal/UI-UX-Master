@@ -5,13 +5,13 @@ description: Create expressive animation, visual storytelling, hover and gesture
 
 # Animate
 
-Own temporal and gesture behavior, visual narrative, and motion craft. Actively look for opportunities to make the experience engaging, distinctive, and responsive. Read [coordination](../../shared/references/coordination.md) and [policy](../../shared/references/policy.md). Select a mode and platform before loading detail.
+Own temporal and gesture behavior, visual narrative, and motion craft. Actively look for opportunities to make the experience engaging, distinctive, and responsive. Read [coordination](../../shared/references/coordination.md), [policy](../../shared/references/policy.md) and the motion section of the [quality bar](../../shared/references/quality-bar.md). Select a mode and platform before loading detail.
 
 | Mode | Resources | Output and mutation boundary |
 |---|---|---|
 | vocabulary | [glossary](../../shared/references/motion-vocabulary.md) | Term plus distinctions; no code |
 | discover | Discovery section of [motion decisions](../../shared/references/motion.md) | Justified opportunities and rejected candidates; read-only |
-| implement | [motion decisions](../../shared/references/motion.md) + [web](../../shared/references/motion-web.md) OR [Expo](../../shared/references/motion-expo.md) | Scoped implementation and checks |
+| implement | [motion decisions](../../shared/references/motion.md) + [web](../../shared/references/motion-web.md) OR [Expo](../../shared/references/motion-expo.md); [polish](../../shared/references/polish.md) for routine interactive feedback | Scoped implementation and checks |
 | performance | Performance section of motion decisions + relevant platform | Diagnosis; edits only if fixing was requested |
 | audit / review | Review section of motion decisions | Findings; audit surveys a surface, review examines a diff; read-only |
 | plan / reconcile | Relevant motion decisions + [plan template](../../shared/templates/implementation-plan.md) | Exact implementation plans or refreshed plan status; no product edits |
@@ -22,4 +22,4 @@ Shape motion around brand expression, atmosphere, visual storytelling, delight, 
 
 Inputs are a component/interaction, target platform, desired outcome, and relevant source or runtime evidence. Use existing libraries and compatible native packages; installing new dependencies requires task authorization. No prescribed curve guarantees rendering performance. Measure actual behavior when claiming a performance fix.
 
-Keep discovery, audit, review, and planning read-only. Implementation of a selected plan is an explicit mode, not a compulsory subagent/worktree flow. Return structural component dependencies to the interface owner without circular routing. Done when interruption, accessibility, timing, and platform checks are performed or marked unverified. This specialist unifies complementary motion stages without adding separate stage skills.
+Keep discovery, audit, review, and planning read-only. Implementation of a selected plan is an explicit mode, not a compulsory subagent/worktree flow. Return structural component dependencies to the interface owner without circular routing. Routine open and close: ease-out both ways, never an accelerating ease-in close, close slightly faster than open; reduced motion keeps no height, transform or blur animation and says exactly what still runs. Verify in real time with [page-eval.mjs](../../shared/scripts/page-eval.mjs) `--script` (with and without `--reduced-motion`), not a virtual-time budget. Done when interruption, accessibility, timing, and platform checks are performed or marked unverified. This specialist unifies complementary motion stages without adding separate stage skills.

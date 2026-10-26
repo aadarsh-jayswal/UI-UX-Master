@@ -1726,7 +1726,8 @@
       "license": "Personal use",
       "rationale": "Gallery/coverage map belong with the images",
       "destination": "integrations/skills/ui-ux-playbook-visuals/examples-gallery.md",
-      "destination_sha256": "48271f4beb6658372614f67b39de334c651faf3c7d4c5ba140f55d0349ab7fd6"
+      "destination_sha256": "30b6bcc9f6356d0872c8e5153ced8ed71273f18c81e0f897b9a95b674ee80725",
+      "post_import_edits": "Principle links replaced by plain IDs so the optional pack is portable"
     },
     {
       "id": "principles:coverage-map.md",
@@ -1737,7 +1738,8 @@
       "license": "Personal use",
       "rationale": "Gallery/coverage map belong with the images",
       "destination": "integrations/skills/ui-ux-playbook-visuals/coverage-map.md",
-      "destination_sha256": "94e9e68a001eebc27ea334fdf06b930a757d2d3a95a45de9a06f227edf48b971"
+      "destination_sha256": "8fc04ed7cd15bb87c2659ae7398756192aca976fd463bc1dacaf6240868863e6",
+      "post_import_edits": "Principle links replaced by plain IDs so the optional pack is portable"
     },
     {
       "id": "jmo:better-ui/animations.md",
@@ -1836,7 +1838,8 @@
       "license": "Authored for this collection",
       "rationale": "Heuristic rendered-UI checks mapped to principle IDs",
       "destination": "shared/scripts/audit-rendered-ui.js",
-      "destination_sha256": "fec9a913c4996ffd99582e7ebd47a5df4014474d3abacdaa01a3abbffc94ddb2"
+      "destination_sha256": "d4a51e594bbc7eb0af8b7a355736a1294a3eff620735c8db1f8155fea71653bf",
+      "post_import_edits": "Added WCAG 1.4.10, 1.4.11, 2.5.8 and 4.1.2 checks; header updated for this collection"
     },
     {
       "id": "jmo:ste/SKILL.md",
@@ -1846,7 +1849,8 @@
       "destination": "shared/references/clear-writing.md",
       "disposition": "re-authored",
       "license": "MIT, Johnathan Mo",
-      "rationale": "Clear technical English rules for every deliverable"
+      "rationale": "Clear technical English rules for every deliverable",
+      "destination_sha256": "89fbf706f70137d976d0cd8819fde642e82b5652b5b0cf772da078785930ed5e"
     },
     {
       "id": "jmo:interview/SKILL.md",
@@ -1856,7 +1860,8 @@
       "destination": "shared/references/discovery-interview.md",
       "disposition": "re-authored",
       "license": "MIT, Johnathan Mo",
-      "rationale": "Requirement interview when a user is available"
+      "rationale": "Requirement interview when a user is available",
+      "destination_sha256": "b934ef38e0d596ca82ab3e64e2890d73840926b3725cc6d9ca2bacc61a4d2a8d"
     },
     {
       "id": "jmo:better-ui/SKILL.md",
@@ -1866,7 +1871,8 @@
       "destination": "shared/references/polish.md",
       "disposition": "re-authored",
       "license": "MIT, Jakub Krehel",
-      "rationale": "Polish rules re-authored with links to this collection's owners"
+      "rationale": "Polish rules re-authored with links to this collection's owners",
+      "destination_sha256": "7325598471e7f9aec9587e95766ac69c6df51c5f5a44065be83dc1292a132047"
     },
     {
       "id": "jmo:animate/RECIPES.md",

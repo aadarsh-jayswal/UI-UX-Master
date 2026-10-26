@@ -31,11 +31,13 @@ The original experience is evidence: compare its visual storytelling and interac
 | General Sonner recommendation versus component-library-specific toast APIs | Follow the installed base/library contract. Do not add Sonner solely because the generic list mentions it. |
 | Audit wants another executor; user already requested fixes | Keep audit read-only. Pass its result to an implementation mode using existing authorization. No compulsory subagent or repeated permission question. |
 | Provider website rules suppress visual reinspection; other outputs require it | Never claim visual verification unless inspected. Provider mechanics do not override honest verification or user-requested inspection. |
+| Polish recipes give exact values; creative direction welcomes expressive motion | [Polish](polish.md) values govern routine interactive feedback (press, hover, icon swap, enter and exit of small surfaces). Narrative and expressive sequences follow [motion decisions](motion.md). Both keep reduced-motion behaviour and never use an accelerating ease-in to close. |
+| Playbook principles versus the project's established system | The [playbook](playbook/index.md) gives defaults and checks; the project's tokens and components win where they are deliberate and consistent. Cite playbook IDs as support, not authority. |
 | Backend marketplace compliance claims | Describe the backend workflow; do not certify a listing without platform-specific evidence. |
 
 ## Standards and platform specificity
 
-The source accessibility-review's AA quick reference includes WCAG 2.1 criterion 2.5.5, which is Level AAA. Preserve target-size guidance as a recommendation where appropriate, label the criterion correctly, and account for its exceptions. See [W3C 2.5.5](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html). A requested newer standard needs current authoritative guidance, not an assumed upgrade of this collection's source checklist.
+The source accessibility-review's AA quick reference includes WCAG 2.1 criterion 2.5.5, which is Level AAA. Preserve target-size guidance as a recommendation where appropriate, label the criterion correctly, and account for its exceptions. See [W3C 2.5.5](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html). In WCAG 2.2, 2.5.8 Target Size (Minimum) is Level AA (24 by 24 CSS pixels, with spacing and other exceptions); cite it for AA target claims. A requested newer standard needs current authoritative guidance, not an assumed upgrade of this collection's source checklist.
 
 Higgsfield's Quanta/TanStack/Cloudflare restrictions apply only after that provider workflow is selected. Web Motion guidance does not apply to native Reanimated APIs. A source's tool-specific frontmatter does not make those tools available on another host.
 

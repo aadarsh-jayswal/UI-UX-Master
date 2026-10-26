@@ -5,7 +5,7 @@ description: Audit, document, or extend shared design tokens, components, patter
 
 # Design System
 
-Own persistent shared interface contracts. Read [coordination](../../shared/references/coordination.md), [policy](../../shared/references/policy.md), and the relevant [system procedures](../../shared/references/design-system.md).
+Own persistent shared interface contracts. Read [coordination](../../shared/references/coordination.md), [policy](../../shared/references/policy.md), the relevant [system procedures](../../shared/references/design-system.md), and the [quality bar](../../shared/references/quality-bar.md). For new or audited scales (spacing on a 4px base, type ratios, radius, elevation, colour roles with measured contrast) check the token row of the [playbook task router](../../shared/references/playbook/task-router.md) and the [polish](../../shared/references/polish.md) surface rules.
 
 ## Modes and outputs
 

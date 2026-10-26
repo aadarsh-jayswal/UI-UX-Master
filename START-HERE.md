@@ -1,6 +1,8 @@
 # Start here
 
-This folder is the actual portable UI/UX skill collection. It contains one router and six independently usable specialists. Existing source folders outside it have not been moved or overwritten.
+This folder is the ui-ux-master collection (2.0.0). It contains one router and six independently usable specialists. Each one applies the [quality bar](shared/references/quality-bar.md) and can run the measurement scripts in `shared/scripts/` (Node 22+; `page-eval.mjs` also needs Chrome or Edge).
+
+As a plugin: run `npm run export:plugin`, then add `../ui-ux-master-marketplace` as a local marketplace in Codex or Claude Code and install `ui-ux-master`. Existing source folders outside it have not been moved or overwritten.
 
 ## Fastest path
 

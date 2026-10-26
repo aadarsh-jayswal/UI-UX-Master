@@ -71,6 +71,18 @@ export function validateBundle({root=bundleRoot,sourceRoot=null}={}) {
       if(!fs.existsSync(source)||hash(fs.readFileSync(source))!==resource.source_sha256)errors.push(`Supporting source drift: ${resource.source_relative}`);
     }
   }
+  const merged=readJson(path.join(root,'provenance','merged-sources.json')).records;
+  if(new Set(merged.map(r=>r.id)).size!==merged.length)errors.push('Duplicate merged-source record IDs');
+  for(const record of merged) {
+    if(!record.origin||!record.rationale||!record.disposition||!record.license)errors.push(`Incomplete merged provenance: ${record.id}`);
+    if(['excluded','duplicate-existing'].includes(record.disposition)||!record.destination)continue;
+    const dest=path.join(root,record.destination);
+    if(!fs.existsSync(dest))errors.push(`Missing merged destination: ${record.destination}`);
+    else if(hash(fs.readFileSync(dest))!==record.destination_sha256)errors.push(`Merged-source drift: ${record.destination}`);
+    if(record.disposition==='snapshot'&&record.sha256!==record.destination_sha256)errors.push(`Snapshot is not byte-identical: ${record.destination}`);
+  }
+  if(!fs.existsSync(path.join(root,config.quality_bar||'shared/references/quality-bar.md')))errors.push('Quality bar missing');
+  for(const skill of config.core)if(!fs.readFileSync(path.join(root,'skills',skill.name,'SKILL.md'),'utf8').includes('quality-bar.md'))errors.push(`Skill does not link the quality bar: ${skill.name}`);
   if(sourceRoot)for(const archive of provenance.archives||[]) {
     const source=path.join(sourceRoot,archive.source_relative);
     if(!fs.existsSync(source)||hash(fs.readFileSync(source))!==archive.sha256)errors.push(`Archive source drift: ${archive.source_relative}`);
@@ -84,7 +96,7 @@ export function validateBundle({root=bundleRoot,sourceRoot=null}={}) {
   }
   const picker=fs.readFileSync(path.join(root,'shared','templates','prototype-picker.html'),'utf8');
   for(const script of picker.matchAll(/<script>([\s\S]*?)<\/script>/g))try{new Function(script[1]);}catch(error){errors.push(`Picker JS syntax: ${error.message}`);}
-  for(const platform of ['codex','claude','cursor']) {
+  for(const platform of ['codex','claude','cursor','plugin']) {
     const directory=path.join(root,'exports',platform,config.platforms[platform].directory);
     if(fs.existsSync(directory))errors.push(...validateInstalled(directory,root));
     else warnings.push(`${platform} ready-to-copy export not generated`);

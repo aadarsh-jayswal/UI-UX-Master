@@ -1,0 +1,45 @@
+<!doctype html>
+<!-- AUTHORED TEST FIXTURE (not from the PDF): deliberately flawed cart page reproducing mistakes the PDF illustrates. See tests/expected.json. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixture: flawed cart</title>
+<style>
+  body { margin: 0; background: #ffffff; font-family: "Poppins", Arial, sans-serif; color: #000000; }
+  .page { padding: 19px 31px; }
+  h1 { font-family: "Times New Roman", serif; font-size: 22px; font-weight: 400; color: #9a9a9a; margin: 0 0 7px; }
+  .intro { font-family: Georgia, serif; font-size: 15px; line-height: 1.1; text-align: center; color: #000000; margin: 0 0 21px; max-width: 520px; }
+  .item { display: flex; gap: 19px; align-items: center; padding: 13px 0; border-bottom: 3px solid #222; }
+  .item img { width: 220px; height: 160px; background: #d9e8c8; }
+  .name { font-size: 12px; color: #a9a9a9; font-weight: 300; }
+  .qty { font-size: 26px; font-weight: 700; color: #000; }
+  .meta { font-size: 9px; color: #b5b5b5; }
+  .pill { display: inline-block; padding: 3px 10px; border-radius: 12px; color: #fff; font-size: 13px; font-family: "Courier New", monospace; }
+  .pill.blocked { background: #e5484d; } .pill.progress { background: #f59f00; } .pill.done { background: #40c057; }
+  .actions { display: flex; gap: 10px; margin-top: 23px; }
+  .actions button { flex: 1; padding: 14px; border: 0; border-radius: 6px; background: #2d1b69; color: #fff; font-size: 15px; }
+  .actions button.round { border-radius: 30px; } .actions button.square { border-radius: 0; }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Your shopping cart</h1>
+  <p class="intro">Thanks for shopping with us. Everything you add stays here for thirty days, and you can come back at any time to review sizes, colours and materials before you decide to check out and pay for your order.</p>
+  <div class="item">
+    <img alt="">
+    <div>
+      <div class="name">Luxury grey suit</div>
+      <div class="qty">1 piece</div>
+      <div class="meta">Colour: Grey · Size: Medium · Material: Polyester · Viewed 3221 times · Sold 221 times · Read return policy</div>
+      <span class="pill blocked">Low stock</span> <span class="pill progress">Ships soon</span> <span class="pill done">In stock</span>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="square">Remove</button>
+    <button class="round">Continue shopping</button>
+    <button>Checkout</button>
+  </div>
+</div>
+</body>
+</html>

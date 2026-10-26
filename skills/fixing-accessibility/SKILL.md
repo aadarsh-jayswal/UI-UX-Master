@@ -5,7 +5,7 @@ description: Audit, fix, or verify interface accessibility including semantics, 
 
 # Fixing Accessibility
 
-Own accessibility evidence and repair. Read [coordination](../../shared/references/coordination.md), [policy](../../shared/references/policy.md), and relevant checks in [accessibility procedure](../../shared/references/accessibility.md).
+Own accessibility evidence and repair. Read [coordination](../../shared/references/coordination.md), [policy](../../shared/references/policy.md), relevant checks in [accessibility procedure](../../shared/references/accessibility.md), and the accessibility remediation section of the [quality bar](../../shared/references/quality-bar.md).
 
 ## Select the contract
 
@@ -15,6 +15,6 @@ Own accessibility evidence and repair. Read [coordination](../../shared/referenc
 
 Input is the accessibility question/defect, relevant source/design/runtime evidence, and applicable platform/standard target when it matters. Use sensible scoped checks while asking only for blocking missing information. Browser, keyboard, contrast tools, scanners, and real assistive technology are conditional dependencies, not grounds to fabricate verification.
 
-A screenshot does not prove focus trapping, reading order, keyboard navigation, or screen-reader announcements. Automated checks do not establish complete conformance. Verify criterion labels against authoritative guidance when claiming conformance; distinguish platform target-size recommendations from WCAG level requirements.
+Measure contrast with [contrast.mjs](../../shared/scripts/contrast.mjs), including non-text contrast (3:1, WCAG 1.4.11) for unselected radio and checkbox indicators, input borders and focus rings. Verify keyboard behaviour with real key events from [page-eval.mjs](../../shared/scripts/page-eval.mjs) `--click` and `--keys`, and run its `--audit` at `--width 320` for reflow, names and target size. A screenshot does not prove focus trapping, reading order, keyboard navigation, or screen-reader announcements. Automated checks do not establish complete conformance. Verify criterion labels against authoritative guidance when claiming conformance; distinguish platform target-size recommendations from WCAG level requirements.
 
 Do not rewrite the application, replace primitive libraries, or create tickets without authorization. If a structural redesign is genuinely necessary, pass a bounded requirement to the interface owner and retain accessibility verification ownership. Done when the requested mode's evidence and checks are reported honestly. Audit reporting and code remediation remain distinct modes within one specialist because they share the same accessibility expertise.

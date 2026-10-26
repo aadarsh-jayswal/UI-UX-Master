@@ -1,6 +1,14 @@
-# UI/UX Meta Architect
+# UI-UX Master
 
-An implemented portable collection: **one router, six core specialists, eleven optional upstream integrations**. It consolidates 50 source definitions into 37 identities, excluding 13 exact duplicate copies from activation. See [start here](START-HERE.md), [architecture](docs/ARCHITECTURE.md), [source map](provenance/sources.json), and [validation status](docs/VALIDATION.md).
+Version 2.0.0 of the UI/UX Meta Architect collection, rebuilt on its seven-skill architecture with the strengths of two other collections folded in as shared references, not new skills:
+
+- **From ui-ux-principles:** The UI/UX Playbook catalogue of 90 principles with stable IDs and a task router (`shared/references/playbook/`), the rendered-UI audit script, and an optional image pack (`ui-ux-playbook-visuals`, 125 source crops and 8 recreated illustrations).
+- **From jmo-skills:** better-ui polish recipes with exact values (`shared/references/polish.md`, MIT, Jakub Krehel), and clear-writing and discovery-interview procedures re-authored from `ste` and `interview` (MIT, Johnathan Mo).
+- **New:** a [quality bar](shared/references/quality-bar.md) per deliverable category, written from the failures graders penalised in blind comparisons, plus Node scripts: `contrast.mjs` (text and 3:1 non-text contrast) and `page-eval.mjs` (headless Chrome at a true viewport width, reduced motion, real key events, audit, screenshots).
+
+Every source file merged in is recorded with its hash in [provenance/merged-sources.json](provenance/merged-sources.json); the validator fails on drift. Package it as a Codex and Claude Code plugin with `npm run export:plugin` (writes `../ui-ux-master-marketplace`).
+
+The base collection: **one router, six core specialists, twelve optional integrations**. It consolidates 50 source definitions into 37 identities, excluding 13 exact duplicate copies from activation. See [start here](START-HERE.md), [architecture](docs/ARCHITECTURE.md), [source map](provenance/sources.json), and [validation status](docs/VALIDATION.md).
 
 The creative direction actively supports distinctive styling, visual narrative, and expressive animation. Design and redesign work should develop brand identity, imagery, hover response, and motion alongside usability. The [context policy](shared/references/policy.md) takes precedence over restrictive aesthetic opinions in preserved upstream recipes; accessibility, responsive input, and measured performance remain part of delivery.
 

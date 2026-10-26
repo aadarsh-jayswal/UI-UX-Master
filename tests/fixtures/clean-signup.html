@@ -1,0 +1,41 @@
+<!doctype html>
+<!-- AUTHORED TEST FIXTURE (not from the PDF): a sign-up page built to follow the principles; used to measure audit false positives. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixture: clean sign-up</title>
+<style>
+  body { margin: 0; font-family: Inter, Arial, sans-serif; background: #f4f4f6; color: #1a1a1a; }
+  main { min-height: 100vh; display: grid; place-items: center; padding: 32px; }
+  .card { width: 420px; background: #fff; border-radius: 16px; padding: 32px; box-shadow: 0 12px 48px #e3e1ec; }
+  h1 { font-size: 28px; line-height: 1.2; font-weight: 700; margin: 0 0 8px; color: #1a1a1a; }
+  .sub { font-size: 16px; line-height: 1.5; color: #4e4e4e; margin: 0 0 32px; }
+  .field { margin-bottom: 24px; }
+  label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px; color: #1a1a1a; }
+  input { width: 100%; box-sizing: border-box; padding: 12px 16px; border: 1px solid #d4d4d8; border-radius: 8px; font-size: 16px; }
+  .row { display: flex; gap: 16px; }
+  .row .short { width: 120px; }
+  .err { color: #b42318; font-size: 14px; margin-top: 8px; }
+  input[aria-invalid=true] { border-color: #d92d20; }
+  .primary { width: 100%; padding: 12px 16px; border: 0; border-radius: 8px; background: #1d4ed8; color: #fff; font-size: 16px; font-weight: 600; }
+  .secondary { display: block; margin-top: 16px; text-align: center; color: #1d4ed8; font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <form class="card">
+    <h1>Create an account</h1>
+    <p class="sub">Free forever. No payment needed.</p>
+    <div class="field"><label for="email">Email</label><input id="email" type="email" aria-invalid="true" aria-describedby="email-err" value="anna@example"><div class="err" id="email-err">Enter a full email address, e.g. anna@example.com</div></div>
+    <div class="field"><label for="pw">Password</label><input id="pw" type="password"></div>
+    <div class="row">
+      <div class="field"><label for="exp">Expiry</label><input id="exp" class="short" autocomplete="cc-exp" placeholder="MM/YY"></div>
+      <div class="field"><label for="cvc">CVC</label><input id="cvc" class="short" autocomplete="cc-csc"></div>
+    </div>
+    <button class="primary" type="submit">Sign up</button>
+    <a class="secondary" href="#">Already have an account? Log in</a>
+  </form>
+</main>
+</body>
+</html>
