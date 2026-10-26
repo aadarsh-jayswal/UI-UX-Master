@@ -1,6 +1,6 @@
 # UI-UX Master
 
-Version 2.0.0 of the UI/UX Meta Architect collection, rebuilt on its seven-skill architecture with the strengths of two other collections folded in as shared references, not new skills:
+Version 2.0.1 of the UI/UX Meta Architect collection, rebuilt on its seven-skill architecture with the strengths of two other collections folded in as shared references, not new skills:
 
 - **From ui-ux-principles:** The UI/UX Playbook catalogue of 90 principles with stable IDs and a task router (`shared/references/playbook/`), the rendered-UI audit script, and an optional image pack (`ui-ux-playbook-visuals`, 125 source crops and 8 recreated illustrations).
 - **From jmo-skills:** better-ui polish recipes with exact values (`shared/references/polish.md`, MIT, Jakub Krehel), and clear-writing and discovery-interview procedures re-authored from `ste` and `interview` (MIT, Johnathan Mo).

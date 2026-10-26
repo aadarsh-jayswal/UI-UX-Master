@@ -1838,8 +1838,8 @@
       "license": "Authored for this collection",
       "rationale": "Heuristic rendered-UI checks mapped to principle IDs",
       "destination": "shared/scripts/audit-rendered-ui.js",
-      "destination_sha256": "d4a51e594bbc7eb0af8b7a355736a1294a3eff620735c8db1f8155fea71653bf",
-      "post_import_edits": "Added WCAG 1.4.10, 1.4.11, 2.5.8 and 4.1.2 checks; header updated for this collection"
+      "destination_sha256": "56dd29101ef2ac7f76473003b6d880724a220eee8459b65a7f84f4f6fed20c40",
+      "post_import_edits": "Added WCAG 1.4.10, 1.4.11, 2.5.8 and 4.1.2 checks; positioned-highlight detection for text contrast; header updated for this collection"
     },
     {
       "id": "jmo:ste/SKILL.md",

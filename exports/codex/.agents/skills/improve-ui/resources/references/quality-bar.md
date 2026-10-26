@@ -10,6 +10,9 @@ Deliverable rules for every specialist. They come from blind evaluations in whic
 - Cite principle IDs from the [playbook](playbook/index.md) compactly: an ID in a `Basis` column or one short "Sources" line. Do not paste page numbers inline, cite them for trivial choices, or use a citation as the justification; justify by the user impact and cite as support.
 - Real public sources (WCAG, platform guidelines) may be named. Say when a value comes from general practice or memory rather than a checked source. Never invent a citation.
 - Report verification as a short table: what was checked, how, and what was not verified. Never claim a check you did not run.
+- Describe a defect in the original only after measuring it; do not claim the original failed a check you did not run (for example "overflowed at 320px" without a 320px render).
+- Keep the deliverable self-contained: put verification results in the note itself. Helper scripts and screenshots may not reach the reader, so never ask them to check a file that is not part of the deliverable.
+- Re-read every rule, threshold and test you give: each must be a single, unambiguous condition a reader can apply.
 - Keep one issue per finding. Do not merge distinct problems into one low-severity row, and do not repeat a finding under two numbers.
 
 ## Review and audit
@@ -34,7 +37,8 @@ Deliverable rules for every specialist. They come from blind evaluations in whic
 
 - Non-text contrast at least 3:1 for anything that conveys state or identity: unselected radio and checkbox rings, selection borders, input boundaries, focus rings, toggles. Graders found near-invisible unselected indicators (1.3:1 and 2.7:1) in otherwise strong builds; measure them.
 - Short accessible names: a plan radio is named by its title and price via `aria-labelledby`, not the whole card's text.
-- Targets at least 44px on touch layouts; hover-only styling behind `@media (hover: hover)`; no `transition: all`; no inline `style` attributes for layout.
+- Put the core content in the HTML; JavaScript enhances it. If selection styling depends on `:has()`, keep a visible fallback (the native control or an `[aria-checked]`/class state) and say so in the note.
+- Targets at least 44px on touch layouts, including segmented controls and toggles; hover-only styling behind `@media (hover: hover)`; no `transition: all`; no inline `style` attributes for layout.
 - Visual quality matters as much as correctness: apply [polish](polish.md) values (concentric radius, layered shadows with a transparent border, press scale 0.96, exact easing) and a clear recommended or selected state that does not compete with the selection colour.
 - Verify behaviour with a script (math, defaults, state changes, no horizontal overflow at 390px, primary action visible): [page-eval.mjs](../scripts/page-eval.mjs) `--width 390 --audit --script checks.js --screenshot phone.png` gives a true 390px viewport (a desktop window resized smaller often stays wider). Inspect screenshots at desktop and phone widths. Re-run checks after the last change.
 
@@ -63,7 +67,7 @@ Deliverable rules for every specialist. They come from blind evaluations in whic
 - Technique: `grid-template-rows: 0fr → 1fr` or a measured height with a `transitionend` settle; keep collapsed content unfocusable (native `hidden` or `visibility: hidden` after close).
 - Easing: ease-out in both directions; never an accelerating ease-in close. Close slightly faster than open (for example 240ms open, 200ms close). Follow [motion decisions](motion.md) for curves.
 - Reduced motion: no height, transform or blur animation; an opacity cross-fade of about 150ms is fine, and the note must describe exactly what runs.
-- Accessibility: `button type="button"`, `aria-expanded`, `aria-controls`. Interruption: reversing mid-flight continues from the current value; rapid clicks end in a consistent state.
+- Accessibility: `button type="button"`, `aria-expanded`, `aria-controls`; collapsed content leaves the tab order at the start of the close, not after it. Interruption: reversing mid-flight continues from the current value; rapid clicks end in a consistent state.
 - Verify in real time (sample every animation frame from a `--script` run of [page-eval.mjs](../scripts/page-eval.mjs), with and without `--reduced-motion`), not with a virtual-time budget, which freezes transitions.
 
 ## Research synthesis

@@ -61,6 +61,13 @@ test('non-text contrast, target size and names are caught',{skip:chrome},async()
   assert.equal(by('WCAG-2.5.8').length,1);
   assert.equal(by('WCAG-4.1.2').length,1);
 });
+test('text on a positioned highlight is not misreported, real failures still are',{skip:chrome},async()=>{
+  const r=await evaluatePage(path.join(fixtures,'segmented.html'),{audit:true});
+  const contrast=r.audit.findings.filter(f=>f.id==='TYP-09');
+  assert(contrast.some(f=>f.severity==='info'&&/"Monthly"/.test(f.sample)));
+  assert(!contrast.some(f=>f.severity!=='info'&&/"Monthly"/.test(f.sample)));
+  assert(contrast.some(f=>f.severity!=='info'&&/Low contrast/.test(f.sample)));
+});
 test('real key events move focus into the dialog and Escape returns it',{skip:chrome},async()=>{
   const r=await evaluatePage(path.join(fixtures,'modal.html'),{click:'#open',keys:'Tab,Shift+Tab,Escape'});
   assert.match(r.afterClick,/^button#cancel/);

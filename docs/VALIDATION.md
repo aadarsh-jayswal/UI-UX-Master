@@ -1,5 +1,25 @@
 # Validation status
 
+## ui-ux-master 2.0.0 and 2.0.1 — 2026-10-26
+
+Checked on Windows with Node 22 and Chrome:
+
+- `node scripts/validate.mjs`: no errors. The validator now also checks the merged-source ledger (`provenance/merged-sources.json`), fails on any hash drift, and confirms that every core skill links the quality bar.
+- `npm test`: **33 passed, 0 failed**. The 11 new tests in `tests/master.test.mjs` cover:
+  - WCAG reference values for contrast;
+  - that the audit script parses;
+  - that the plugin export is portable, with the quality bar and scripts in each skill and 133 images in the visuals pack;
+  - that every script-detectable planted flaw is found in the 4 copied fixtures at their stated viewport;
+  - non-text contrast, target size and accessible names;
+  - real key events in a dialog;
+  - reduced motion and a true 320px width;
+  - text on a positioned highlight not being misreported.
+- `npm run export:plugin` builds `../ui-ux-master-marketplace`. `claude plugin validate` passed for the marketplace and the plugin. The plugin is installed at user scope in Claude Code (2.0.1, enabled) and in Codex (`ui-ux-master@ui-ux-master-local`, 2.0.1).
+- **Blind four-way comparison** against ui-ux-principles, ui-ux-meta-architect and jmo-skills on the 8-task set: 2.0.0 ranked first in all 16 judgements, with an overall mean of 9.03 against 8.23–8.38 for the others. No category reached 10. See `../plugin-comparison/COMPARISON.md`, round 3. The quality bar was written from earlier rounds' grader penalties on the same tasks, so these scores are not a held-out result.
+- 2.0.1 adds quality-bar rules for the flaws graders still found and fixes an audit false positive. It has not been re-evaluated.
+
+Not verified: model routing in a live Claude Code or Codex session after install (a restart is needed), macOS and Linux, real screen readers, and performance on tasks outside the 8-task set.
+
 ## Expressive design revision — 2026-10-24
 
 Removed conservative aesthetic defaults from the active baseline, context policy, motion profiles, interface/review procedures, skill entrypoints, and playbooks. Creative direction now promotes visual narrative, brand identity, expressive styling, hover interaction, and richer choreography. Accessibility, input responsiveness, authorization boundaries, and evidence-based performance checks remain. Attributed upstream snapshots are preserved; canonical context policy explicitly resolves their blanket aesthetic restrictions.

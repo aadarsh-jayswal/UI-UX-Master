@@ -53,6 +53,29 @@
     for (const layer of layers.reverse()) bg = blend(layer, bg);
     return bg;
   };
+  // A highlight drawn by an absolutely positioned sibling or pseudo-element (segmented-control thumb,
+  // selected pill) sits behind the text without being its ancestor; find it so contrast is not misreported.
+  const underlay = (el) => {
+    const box = el.getBoundingClientRect(), cx = box.x + box.width / 2, cy = box.y + box.height / 2;
+    for (let n = el, depth = 0; n && n.parentElement && depth < 4; n = n.parentElement, depth++) {
+      const parent = n.parentElement;
+      for (const sib of parent.children) {
+        if (sib === n || sib.contains(el)) continue;
+        const ss = getComputedStyle(sib);
+        if (!/absolute|fixed/.test(ss.position)) continue;
+        const c = parseColor(ss.backgroundColor);
+        const r = sib.getBoundingClientRect();
+        if (c && c.a > 0.5 && cx >= r.left && cx <= r.right && cy >= r.top && cy <= r.bottom) return blend(c, effectiveBg(parent));
+      }
+      for (const pseudo of ["::before", "::after"]) {
+        const ps = getComputedStyle(parent, pseudo);
+        if (ps.content === "none" || !/absolute|fixed/.test(ps.position)) continue;
+        const c = parseColor(ps.backgroundColor);
+        if (c && c.a > 0.5) return blend(c, effectiveBg(parent));
+      }
+    }
+    return null;
+  };
   const saturation = ({ r, g, b }) => { const mx = Math.max(r, g, b), mn = Math.min(r, g, b); return mx === 0 ? 0 : (mx - mn) / mx; };
   const hue = ({ r, g, b }) => {
     const mx = Math.max(r, g, b), mn = Math.min(r, g, b), d = mx - mn;
@@ -100,7 +123,10 @@
       const r = ratio(fg, bg);
       const large = size >= 24 || (size >= 18.66 && weight >= 700);
       const min = large ? 3 : 4.5;
-      if (r < min) add(el.closest("[class*=badge],[class*=pill],[class*=tag],[class*=chip],[class*=status]") ? "CON-01" : "TYP-09", r < 3 ? "high" : "medium",
+      const under = r < min ? underlay(el) : null;
+      const ru = under ? ratio(color.a < 1 ? blend(color, under) : color, under) : null;
+      if (under && ru >= min) add("TYP-09", "info", `contrast ${r.toFixed(2)}:1 against the ancestor background but ${ru.toFixed(2)}:1 against a positioned highlight behind the text; confirm on a screenshot`, el);
+      else if (r < min) add(el.closest("[class*=badge],[class*=pill],[class*=tag],[class*=chip],[class*=status]") ? "CON-01" : "TYP-09", r < 3 ? "high" : "medium",
         `contrast ${r.toFixed(2)}:1 (needs ${min}:1)`, el);
     } else if (bg.image) {
       add("CON-03", "info", "text over a background image: verify legibility against the lightest/busiest region", el);
