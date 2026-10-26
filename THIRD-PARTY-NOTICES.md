@@ -1,0 +1,15 @@
+# Third-party attribution and status
+
+This collection adapts workflows and resources from the accessible UI-UX source collection. Original source files remain unchanged. Full source identities, hashes, archive members, dispositions, and resource locations are in the authoring bundle's `provenance/sources.json`; that map is not a runtime dependency.
+
+- **Emil Kowalski, 2026:** Skills for Designers and Engineers. MIT notice retained as `licenses/emil-kowalski-MIT.txt`. Web/Expo recipes, vocabulary source, and Sonner API are preserved snapshots. Core motion/craft guidance is adapted with explicit contextual conflict resolution.
+- **Julien Thibeaut, 2026:** UI Skills. MIT notice retained as `licenses/julien-thibeaut-MIT.txt`. Baseline, accessibility, metadata, performance, review, and DESIGN.md guidance informs canonical modes/references.
+- **Higgsfield AI, 2026:** Optional upstream skill snapshots and their supporting files. MIT notice retained as `licenses/higgsfield-MIT.txt`. Optional snapshots are not an installed CLI, account, authenticated service, or compatibility guarantee.
+- **shadcn, 2023:** Optional shadcn and Radix-to-Base migration snapshots. MIT notice retained as `licenses/shadcn-MIT.txt`.
+- **Anthropic Design plugin, source manifest version 1.2.0:** Seven definitions were inspected and mapped. No license file is documented in the accessible folder. Canonical research/design procedures use newly worded synthesis rather than redistributing those definitions verbatim. Resolve the source's license status before any public distribution containing copied source material; no blanket license for that source is asserted here.
+- **Jatin, packaged Toolkit and shadcn-ui version 0.1.0 manifests:** Packaging identity preserved in provenance. Thirteen byte-identical packaged skill copies are excluded from active exports. The combined UI toolkit is an adaptation ancestor, not an extra activated duplicate.
+- **User-provided taxonomy guides:** Both original and revised documents are preserved for private traceability in the authoring bundle and reconciled in the page-taxonomy reference. No independent third-party license or authorship beyond user-provided material is invented.
+
+Adaptations deliberately scope absolute aesthetic rules, distinguish critique/audit from implementation, correct the WCAG 2.1 target-size level label, and isolate provider/platform rules. Official platform documentation is linked in `docs/PLATFORMS.md` in the authoring bundle. Dependencies and service terms are not granted by these notices.
+
+This private working collection does not declare a blanket license that supersedes its constituent notices. Keep applicable notices with substantial copied portions and review provenance before public redistribution.
