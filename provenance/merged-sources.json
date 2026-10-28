@@ -10,7 +10,7 @@
       "license": "Paraphrased knowledge base built from a third-party PDF (uxpeak); personal use",
       "rationale": "Traceable visual/UX rules with IDs, checks and exceptions; image links replaced to avoid per-skill duplication",
       "destination": "shared/references/playbook/index.md",
-      "destination_sha256": "2167722b662fb19a86ef85cd6e35c6311f8225d723e622941dd74e0810bb22e1"
+      "destination_sha256": "c325244b5fa22e161d4d7b56c6b3abae218ee877a1a0848d1c5f44e1452f1cc2"
     },
     {
       "id": "principles:task-router.md",

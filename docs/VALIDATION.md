@@ -1,5 +1,25 @@
 # Validation status
 
+## ui-ux-master 2.1.0 — 2026-10-27
+
+Guidance changes from the held-out blind test (`../plugin-comparison/heldout-isolated-5a2a125781e5` and `../plugin-comparison/heldout-regrade`), where 2.0.1 ranked first but repeatedly missed required states and used citations readers could not look up:
+
+- **Quality bar, all outputs:** list the required states from the brief and the pattern before building or judging, and write checks from that list. The pattern defaults are a non-colour selected cue, inert controls while paused, and timers that pause on hover and focus (WCAG 2.2.1). Make the smallest visible change when "keep the look" conflicts with a required fix. Cite public sources (WCAG number and level) in reader-facing work, not playbook IDs. Use verification tables only for work that ran.
+- **Quality bar, per category:**
+  - Review: prototype wiring becomes a note; `inputmode`, `autocomplete` and delivery estimates; spacing changes cover every group.
+  - Accessibility: whole-pattern contract and focusable panels.
+  - UI build: suspended controls inert; change count separate from save status.
+  - Design spec: collection, duplicate, limit, offline, cancel, touch-path and consistency checks.
+  - Scoped edit: real characters per line, `clamp()` headings, wrapping.
+  - Explanation: every applicable criterion with level and threshold; caveats of alternatives.
+  - Motion: behaviour contract first, plus full toast rules.
+  - Research: per-task outcome table with "Not attempted", severity-first ranking, concrete patterns.
+- **Templates:** `findings.md` replaces `Basis`/`Confidence` with a `Standard` column. `research-report.md` adds a task-outcomes table and concrete-pattern guidance.
+- **References:** `motion.md` adds a behaviour-contract section. `accessibility.md` adds stateful-widget and timing rows plus whole-pattern remediation. `improve-ui/SKILL.md` drops basis IDs and confidence from reports.
+- **Playbook index:** the playbook index sentence on citing IDs is rewritten through `scripts/import-sources.mjs`, and its ledger hash is updated.
+
+Checked: `node scripts/validate.mjs` has no errors, and `npm test` passed 33 of 33. One Chrome audit test failed once and then passed on three re-runs. **Not re-evaluated:** these rules target the held-out failures, so h1–h8 can no longer give a fair score. A new held-out task set is needed.
+
 ## ui-ux-master 2.0.0 and 2.0.1 — 2026-10-26
 
 Checked on Windows with Node 22 and Chrome:

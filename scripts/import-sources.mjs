@@ -29,7 +29,9 @@ const toPlaybook = body => body
   .replace(/\[([^\]]+)\]\((?:\.\.\/)?(coverage-map|examples-gallery)\.md\)/g, '$1 (optional `ui-ux-playbook-visuals` pack)')
   .replace(/`scripts\/audit_rendered_ui\.js`/g, '`scripts/audit-rendered-ui.js`')
   .replace(/`scripts\/contrast\.py`/g, '`scripts/contrast.mjs`')
-  .replace(/python (?:\.\.\/\.\.\/)?scripts\/contrast\.py/g, 'node scripts/contrast.mjs');
+  .replace(/python (?:\.\.\/\.\.\/)?scripts\/contrast\.py/g, 'node scripts/contrast.mjs')
+  .replace('IDs are stable; cite them in reviews together with the PDF page.',
+    'IDs are stable; use them in working notes to trace a rule, and cite public sources (WCAG criteria, platform guidelines) in reader-facing deliverables.');
 for (const rel of playbookFiles) {
   const src = path.join(refs, rel);
   write(path.join(playbookDir, rel), Buffer.from(toPlaybook(text(src))), {

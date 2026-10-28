@@ -13,6 +13,8 @@ Source-derived checks cover common web accessibility concerns; this is not an ex
 | Announcements | Status/loading, expansion/control relationships, useful live regions | Actual announcements with appropriate assistive technology; avoid repeated noise |
 | Structure/content | Headings, lists/tables, landmarks, meaningful image alternatives | Reading order and structure match the task |
 | Contrast/states | Text/component contrast at applicable thresholds, focus/disabled states, non-color cues | Measured rendered colors, relevant states and themes |
+| Stateful widgets | Full pattern contract (for tabs: roles, `aria-selected`, `aria-controls`/`aria-labelledby`, roving tabindex, Arrow/Home/End, hidden inactive panels); selected or current state shown by more than colour, at 3:1 or more | Real keys through every state; selected cue still visible after focus leaves; inactive content absent from the tab order and accessibility tree |
+| Timing and suspended modes | Auto-dismissing or moving content can be paused (hover, focus within, or a control); paused or read-only modes make affected controls inert | Hold hover or focus past the timeout and confirm it waits; a click and Space on a suspended control change nothing |
 | Media/motion | Captions/controls where required, no surprising sound, reduced-motion alternative | Real playback/settings behavior |
 | Reflow/targets | Zoom/text scaling, content access, target size/spacing under applicable standard/platform | Relevant viewport/input mode and criterion exceptions |
 
@@ -24,7 +26,7 @@ Read-only on product source. State evidence type (design, source, rendered, keyb
 
 ## Remediate
 
-Start at the reported defect. Prefer native HTML and the project's established accessible primitive. Fix names/keyboard/focus before cosmetic additions. Avoid redundant ARIA or changing unrelated component libraries. Associate errors with fields and ensure important information is not toast-only. A fix may need source changes and targeted runtime verification without a whole-product audit.
+Start at the reported defect. Prefer native HTML and the project's established accessible primitive. Fix the whole pattern the defect belongs to, not only the listed symptoms; write its required states first and check each one. Fix names/keyboard/focus before cosmetic additions. When the brief asks you not to change the look but a required state has no non-colour cue, add the smallest visible cue (for example a 2px underline in the existing accent colour) and name the trade-off. Avoid redundant ARIA or changing unrelated component libraries. Associate errors with fields and ensure important information is not toast-only. A fix may need source changes and targeted runtime verification without a whole-product audit.
 
 ## Verify
 

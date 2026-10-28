@@ -1,6 +1,6 @@
 # UI-UX Master
 
-Version 2.0.1 of the UI/UX Meta Architect collection, rebuilt on its seven-skill architecture with the strengths of two other collections folded in as shared references, not new skills:
+Version 2.1.0 of the UI/UX Meta Architect collection, rebuilt on its seven-skill architecture with the strengths of two other collections folded in as shared references, not new skills:
 
 - **From ui-ux-principles:** The UI/UX Playbook catalogue of 90 principles with stable IDs and a task router (`shared/references/playbook/`), the rendered-UI audit script, and an optional image pack (`ui-ux-playbook-visuals`, 125 source crops and 8 recreated illustrations).
 - **From jmo-skills:** better-ui polish recipes with exact values (`shared/references/polish.md`, MIT, Jakub Krehel), and clear-writing and discovery-interview procedures re-authored from `ste` and `interview` (MIT, Johnathan Mo).
@@ -72,5 +72,7 @@ Core frontmatter contains portable name/description only. Seven peer directories
 If you use Claude and Codex in the same project, each needs its own documented root; Cursor may also discover compatible roots. Avoid maintaining divergent same-name copies and check the actual selector for duplicates. Use one intended active copy per host/scope.
 
 ## Attribution
+
+Original contributions to UI-UX Master are licensed under the [MIT License](LICENSE), copyright (c) 2026 Aadarsh Jayswal. Third-party material retains its respective licenses and notices.
 
 See [third-party notices](THIRD-PARTY-NOTICES.md) and `licenses/`. This private working collection preserves known constituent notices and does not invent a blanket license for undocumented source material. Both taxonomy documents were read, retained in provenance, and reconciled.

@@ -1,7 +1,8 @@
 {
   "name": "ui-ux-master",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "private": true,
+  "license": "MIT",
   "description": "UI/UX agent skill collection: meta-architect workflows plus the UI/UX Playbook principles, better-ui polish and an eval-driven quality bar",
   "type": "module",
   "engines": {

@@ -34,6 +34,18 @@ Candidate feedback starting points: press 100–160ms; small tooltip/popover 125
 
 For a physical gesture, preserve current presentation and release velocity on interruption. Anchor popover origins at the trigger; centered modals need not originate from a trigger. Choose scale, overshoot, and spring character to match the art direction. Match entry/exit paths when spatial continuity matters. Deliberate hold actions can have slower progress and a snappy release response. Reduced-motion alternatives retain content, narrative, and necessary feedback through gentler or static treatments.
 
+## Behaviour contract before motion
+
+Motion is added to a component's behaviour, never in place of it. Before animating, list what the component must still do, including what the pattern requires but the original may lack, and verify each item after the motion lands. For notifications and other timed content:
+
+- Enter with transform and opacity from the anchored edge; exit faster than enter with an ease-out curve.
+- Reflow the remaining items smoothly when one leaves (FLIP, or a height and margin collapse that starts with the exit rather than after it), with no jump.
+- Pause the dismiss timer on hover and on focus within, and resume with the remaining time, not a fresh full duration (WCAG 2.2.1 Timing Adjustable, Level A).
+- Never move focus when a timer expires. On a manual dismiss, return focus to a sensible target only if focus was inside the item.
+- Dismissing mid-enter and rapid repeats end in a consistent state.
+- Announce each message once: add it to the existing live region and do not re-insert moved nodes, which some screen readers announce again.
+- Reduced motion keeps the same timing and pause behaviour with an opacity-only change; the note says exactly what still runs.
+
 ## Discovery
 
 Read-only. Look for opportunities in the hero, section-to-section narrative, imagery, cards, links, navigation, pointer response, scroll progression, gestures, and completion moments, as well as feedback gaps and disconnected state changes. Compare existing choreography before proposing replacements. For each candidate record the intended experience, trigger, replay/reversal behavior, timing or progress mapping, exact location, and accessible alternative. Prioritize a coherent set that creates impact while keeping content usable. Report concrete ingredients and explain omitted candidates where useful. Do not implement suggestions in discover mode.
@@ -54,4 +66,4 @@ Use [findings](../templates/findings.md), with concrete before/after recommendat
 
 ## Verification
 
-Try rapid repeats, mid-flight reversal, dismissal, reduced motion, pointer/touch behavior, content extremes, and the actual busy/load state when relevant. Use slow playback or frame inspection for timing. Native gestures/haptics need release builds on representative physical devices. Report simulator-only/source-only limits; a passing build does not prove feel.
+Try rapid repeats, mid-flight reversal, dismissal, reduced motion, pointer/touch behavior, content extremes, and the actual busy/load state when relevant. Test every item of the behaviour contract, including interaction states such as hover and focus held past a dismiss time; a frame-perfect animation that breaks a required behaviour is a failure. Use slow playback or frame inspection for timing. Native gestures/haptics need release builds on representative physical devices. Report simulator-only/source-only limits; a passing build does not prove feel.
