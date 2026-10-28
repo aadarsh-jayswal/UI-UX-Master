@@ -1,0 +1,165 @@
+{
+  "note": "AUTHORED TEST FIXTURES. Each planted flaw reproduces a mistake shown in the PDF. 'script' = expected from scripts/audit_rendered_ui.js; 'review' = expected from a ui-ux-review pass (visual/semantic judgement).",
+  "fixtures": {
+    "flawed-cart.html": {
+      "viewport": [
+        1280,
+        900
+      ],
+      "planted": {
+        "VH-01": {
+          "how": "Remove, Continue shopping and Checkout are identical filled buttons",
+          "script": true
+        },
+        "VH-02": {
+          "how": "'1 piece' quantity is larger/darker than the product name; oversized image",
+          "script": false
+        },
+        "VH-04": {
+          "how": "grey heading above black paragraph",
+          "script": true
+        },
+        "SIM-01": {
+          "how": "view/sold counts and return-policy text on a cart",
+          "script": false
+        },
+        "CON-01": {
+          "how": "white text on saturated status pills",
+          "script": true
+        },
+        "TYP-03": {
+          "how": "Poppins/Arial, Times New Roman, Georgia and Courier New in use",
+          "script": true
+        },
+        "TYP-07": {
+          "how": "pure #000000 body text",
+          "script": true
+        },
+        "TYP-09": {
+          "how": "#A9A9A9 product name on white",
+          "script": true
+        },
+        "TYP-10": {
+          "how": "product name at weight 300",
+          "script": false
+        },
+        "TYP-12": {
+          "how": "9px metadata text",
+          "script": true
+        },
+        "TYP-13": {
+          "how": "intro paragraph line-height 1.1",
+          "script": true
+        },
+        "ALN-03": {
+          "how": "centred multi-line intro paragraph",
+          "script": true
+        },
+        "WS-03": {
+          "how": "7/13/19/21/23/31px spacing values",
+          "script": true
+        },
+        "CNS-01": {
+          "how": "square, 6px and pill radii on sibling buttons",
+          "script": true
+        },
+        "DEP-08": {
+          "how": "3px dark item divider",
+          "script": false
+        }
+      }
+    },
+    "flawed-signup.html": {
+      "viewport": [
+        1440,
+        1000
+      ],
+      "planted": {
+        "WS-04": {
+          "how": "inputs and button stretched across a wide form column",
+          "script": true
+        },
+        "PRX-01": {
+          "how": "labels have 28px above and 28px below (equidistant)",
+          "script": false
+        },
+        "FRM-03": {
+          "how": "Confirm password field",
+          "script": true
+        },
+        "FRM-02": {
+          "how": "Expiry, CVC and ZIP rendered full width",
+          "script": true
+        },
+        "IC-05": {
+          "how": "Ferrari ad with its own Book now CTA beside sign-up",
+          "script": false
+        },
+        "COL-04": {
+          "how": "CVC error shown only by a red border",
+          "script": true
+        },
+        "COL-05": {
+          "how": "username error shown in amber/yellow",
+          "script": false
+        },
+        "IC-09": {
+          "how": "three-option theme dropdown instead of swatches",
+          "script": true
+        }
+      }
+    },
+    "flawed-mobile-projects.html": {
+      "viewport": [
+        390,
+        844
+      ],
+      "planted": {
+        "MOB-01": {
+          "how": "Sign in button at the top right",
+          "script": true
+        },
+        "TYP-14": {
+          "how": "heading line-height 1.7 vs body 1.15",
+          "script": true
+        },
+        "TYP-13": {
+          "how": "body line-height 1.15",
+          "script": true
+        },
+        "TYP-10": {
+          "how": "body weight 200",
+          "script": true
+        },
+        "CLR-01": {
+          "how": "icon-only toggle tiles without visible labels",
+          "script": true
+        },
+        "CNS-01": {
+          "how": "one tile has square corners, others rounded",
+          "script": false
+        },
+        "STA-01": {
+          "how": "bare 'You have no projects!' empty state",
+          "script": false
+        },
+        "DLG-01": {
+          "how": "green Delete button in a destructive confirmation",
+          "script": true
+        },
+        "DLG-02": {
+          "how": "Delete placed left of Cancel",
+          "script": true
+        }
+      }
+    },
+    "clean-signup.html": {
+      "viewport": [
+        1440,
+        1000
+      ],
+      "planted": {},
+      "purpose": "false-positive check: should produce no findings, or only low-severity leads"
+    }
+  }
+}

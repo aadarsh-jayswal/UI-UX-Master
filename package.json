@@ -1,0 +1,19 @@
+{
+  "name": "ui-ux-master",
+  "version": "2.1.0",
+  "private": true,
+  "license": "MIT",
+  "description": "UI/UX agent skill collection: meta-architect workflows plus the UI/UX Playbook principles, better-ui polish and an eval-driven quality bar",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "test": "node --test tests/portability.test.mjs tests/picker-logic.test.mjs tests/master.test.mjs",
+    "export:codex": "node scripts/setup.mjs --platform codex --project exports/codex --apply",
+    "export:claude": "node scripts/setup.mjs --platform claude --project exports/claude --apply",
+    "export:cursor": "node scripts/setup.mjs --platform cursor --project exports/cursor --apply",
+    "export:plugin": "node scripts/package-plugin.mjs"
+  }
+}
