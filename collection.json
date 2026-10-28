@@ -1,0 +1,85 @@
+{
+  "name": "ui-ux-master",
+  "version": "2.1.0",
+  "format": "agent-skills",
+  "core": [
+    {
+      "name": "ui-ux-meta-architect",
+      "role": "router",
+      "separate_purpose": "Select and coordinate distinct workflow owners without duplicating their instructions."
+    },
+    {
+      "name": "user-research",
+      "role": "specialist",
+      "separate_purpose": "Own collection and interpretation of actual user evidence, separate from interface assumptions."
+    },
+    {
+      "name": "design-system",
+      "role": "specialist",
+      "separate_purpose": "Own persistent shared tokens, components, patterns, and design-language documentation."
+    },
+    {
+      "name": "ui-design-toolkit",
+      "role": "specialist",
+      "separate_purpose": "Deliver the concrete interface, with copy, flow, exploration, metadata, and handoff as modes."
+    },
+    {
+      "name": "improve-ui",
+      "role": "specialist",
+      "separate_purpose": "Preserve independent read-only critique/audit/planning instead of quietly editing during review."
+    },
+    {
+      "name": "fixing-accessibility",
+      "role": "specialist",
+      "separate_purpose": "Own specialized standards, keyboard, semantic, assistive-technology evidence and remediation."
+    },
+    {
+      "name": "animate",
+      "role": "specialist",
+      "separate_purpose": "Own temporal/gesture behavior, interruption, platform rendering, and motion verification."
+    }
+  ],
+  "platforms": {
+    "codex": {
+      "directory": ".agents/skills",
+      "invoke": "$ui-ux-meta-architect"
+    },
+    "claude": {
+      "directory": ".claude/skills",
+      "invoke": "/ui-ux-meta-architect"
+    },
+    "cursor": {
+      "directory": ".cursor/skills",
+      "invoke": "/ then select ui-ux-meta-architect"
+    },
+    "generic": {
+      "directory": ".agents/skills",
+      "invoke": "Use the host's skill selector or explicitly read the router SKILL.md and selected peer files."
+    },
+    "plugin": {
+      "directory": "skills",
+      "invoke": "/ui-ux-master:ui-ux-meta-architect (Claude) or $ui-ux-meta-architect (Codex)"
+    }
+  },
+  "optional": [
+    "shadcn",
+    "migrate-radix-to-base",
+    "write-swift",
+    "higgsfield-generate",
+    "higgsfield-soul-id",
+    "higgsfield-product-photoshoot",
+    "higgsfield-marketplace-cards",
+    "higgsfield-brandkit",
+    "higgsfield-websites",
+    "higgsfield-video-explainer",
+    "higgsfield-youtube-thumbnail",
+    "ui-ux-playbook-visuals"
+  ],
+  "expected_source_definitions": 50,
+  "expected_unique_source_names": 37,
+  "expected_duplicate_copies": 13,
+  "shared_contract": "shared/references/coordination.md",
+  "conflict_policy": "shared/references/policy.md",
+  "quality_bar": "shared/references/quality-bar.md",
+  "merged_sources": "provenance/merged-sources.json"
+}

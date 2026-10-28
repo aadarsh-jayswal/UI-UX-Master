@@ -1,0 +1,58 @@
+{
+  "probe": "native Codex skills/list; no model turn",
+  "results": [
+    {
+      "cwd": "D:\\Study\\GenAI\\Skills\\UI-UX",
+      "collectionSkills": [],
+      "errors": []
+    },
+    {
+      "cwd": "D:\\Study\\GenAI\\Skills\\UI-UX\\ui-ux-meta-architect\\exports\\codex",
+      "collectionSkills": [
+        {
+          "name": "animate",
+          "path": "D:\\Study\\GenAI\\Skills\\UI-UX\\ui-ux-meta-architect\\exports\\codex\\.agents\\skills\\animate\\SKILL.md",
+          "scope": "repo",
+          "enabled": true
+        },
+        {
+          "name": "design-system",
+          "path": "D:\\Study\\GenAI\\Skills\\UI-UX\\ui-ux-meta-architect\\exports\\codex\\.agents\\skills\\design-system\\SKILL.md",
+          "scope": "repo",
+          "enabled": true
+        },
+        {
+          "name": "fixing-accessibility",
+          "path": "D:\\Study\\GenAI\\Skills\\UI-UX\\ui-ux-meta-architect\\exports\\codex\\.agents\\skills\\fixing-accessibility\\SKILL.md",
+          "scope": "repo",
+          "enabled": true
+        },
+        {
+          "name": "improve-ui",
+          "path": "D:\\Study\\GenAI\\Skills\\UI-UX\\ui-ux-meta-architect\\exports\\codex\\.agents\\skills\\improve-ui\\SKILL.md",
+          "scope": "repo",
+          "enabled": true
+        },
+        {
+          "name": "ui-design-toolkit",
+          "path": "D:\\Study\\GenAI\\Skills\\UI-UX\\ui-ux-meta-architect\\exports\\codex\\.agents\\skills\\ui-design-toolkit\\SKILL.md",
+          "scope": "repo",
+          "enabled": true
+        },
+        {
+          "name": "ui-ux-meta-architect",
+          "path": "D:\\Study\\GenAI\\Skills\\UI-UX\\ui-ux-meta-architect\\exports\\codex\\.agents\\skills\\ui-ux-meta-architect\\SKILL.md",
+          "scope": "repo",
+          "enabled": true
+        },
+        {
+          "name": "user-research",
+          "path": "D:\\Study\\GenAI\\Skills\\UI-UX\\ui-ux-meta-architect\\exports\\codex\\.agents\\skills\\user-research\\SKILL.md",
+          "scope": "repo",
+          "enabled": true
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

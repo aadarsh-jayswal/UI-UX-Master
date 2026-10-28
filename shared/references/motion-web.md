@@ -1,0 +1,15 @@
+# Web motion profile
+
+Read [shared decisions](motion.md), then only the relevant [web recipes](web-recipes.md). The recipe snapshot is attributed upstream material, not proof that its library APIs match this project's version.
+
+Compose an engaging web experience through hover/press response, image treatments, orchestrated entrances, scroll-linked storytelling, page transitions, and ambient motion where they fit the direction. Use CSS transitions/animations, starting-style for supported entry, WAAPI for programmatic control, or spring/layout/exit tools for richer choreography. SVG, canvas, and WebGL are available for effects that benefit from them. Prefer installed tools and choose additional dependencies within task authorization. Select tools for the intended experience rather than limiting the design to fades. Complex accessible components should reuse established primitives rather than custom focus handling.
+
+Make desktop navigation responsive to hover when appropriate to the established behavior: open the drawer on pointer entry and keyboard focus, preserve it while moving between trigger and panel, and support click/tap and Escape dismissal. Verify focus and closing behavior rather than creating a hover-only menu. Add coherent hover feedback to interactive cards, buttons, links, and imagery. Use fine-pointer capability checks for pointer-specific effects and provide equivalent touch/keyboard operation.
+
+For visual narrative, specify scene progression, layers, scroll mapping, transitions, and replay/reversal behavior. A reveal may run once, replay, reverse with scroll, or remain ambient according to its role. Preserve successful original imagery and motion in a redesign; replacing a rich scene with static blocks and generic fades needs evidence that the intended experience is retained.
+
+For anchored overlays resolve the actual trigger-origin variable/API. Preserve current visual state and velocity when retargeting a gesture. Pointer capture and sensible cancellation/threshold handling prevent lost drags; do not snap the element's center to the pointer on grab. Touch needs press/gesture affordances, not hover-only state. Gate decorative hover with hover/fine-pointer capability where appropriate.
+
+Respect reduced motion with an alternative that retains content, narrative, and essential state feedback. Pause loops offscreen and provide pause/stop controls where needed. Optimize actual rendering bottlenecks while preserving the creative direction. Validate compositing rather than assuming syntax guarantees off-main-thread execution. A Motion shorthand versus full-string decision needs the installed version and profiling, not a timeless blanket claim.
+
+Recipe topics include press feedback, overlays, toasts, accordion, stagger, hold-to-confirm, tab indicator, scroll reveal, and drag dismissal. Adapt code to product tokens, semantics, lifecycle, framework, and measured performance. Check repeated interaction, entry/exit symmetry, accessible focus, reduced settings, and real content before reporting completion.

@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Modal fixture</title>
+<style>body{font:16px/1.5 system-ui;margin:24px}dialog{max-width:min(28rem,calc(100vw - 32px));border:1px solid #767676;border-radius:12px}dialog::backdrop{background:rgb(0 0 0/.4)}button{min-height:44px;padding:0 16px}</style></head>
+<body><main><h1>Settings</h1><button id="open" type="button">Delete project</button></main>
+<dialog id="dlg" aria-labelledby="t"><h2 id="t">Delete project?</h2><p>This removes the project for everyone.</p>
+<button id="cancel" type="button">Cancel</button> <button id="confirm" type="button">Delete</button></dialog>
+<script>const d=document.getElementById('dlg'),o=document.getElementById('open');
+o.addEventListener('click',()=>{if(!d.open)d.showModal();});
+document.getElementById('cancel').addEventListener('click',()=>d.close());
+document.getElementById('confirm').addEventListener('click',()=>d.close());
+d.addEventListener('close',()=>o.focus());</script></body></html>

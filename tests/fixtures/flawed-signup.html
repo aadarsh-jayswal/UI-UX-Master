@@ -1,0 +1,55 @@
+<!doctype html>
+<!-- AUTHORED TEST FIXTURE (not from the PDF): deliberately flawed sign-up/payment page reproducing mistakes the PDF illustrates. View at about 1440px wide. See tests/expected.json. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixture: flawed sign-up</title>
+<style>
+  body { margin: 0; font-family: Inter, Arial, sans-serif; background: #fff; color: #1a1a1a; }
+  .wrap { display: flex; min-height: 100vh; }
+  form { flex: 1; padding: 48px 80px; }
+  h2 { font-size: 28px; margin: 0 0 8px; }
+  label { display: block; font-size: 14px; margin: 28px 0 28px; }
+  input, select { display: block; width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; }
+  input.error { border: 2px solid #e5484d; }
+  .warn { border: 2px solid #f5b400 !important; }
+  .warn-msg { color: #c98a00; font-size: 13px; margin-top: 4px; }
+  button[type=submit] { width: 100%; margin-top: 32px; padding: 14px; border: 0; border-radius: 8px; background: #2563eb; color: #fff; font-size: 16px; }
+  .ad { width: 320px; background: #0b0b0b; color: #fff; display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; }
+  .ad button { margin-top: 16px; padding: 12px 24px; background: #e03131; color: #fff; border: 0; border-radius: 6px; font-size: 16px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <form>
+    <h2>Create an account for free</h2>
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" value="anna@example">
+    <label for="username">Username</label>
+    <input id="username" name="username" class="warn">
+    <div class="warn-msg">This username is not available</div>
+    <label for="pw">Password</label>
+    <input id="pw" name="password" type="password">
+    <label for="pw2">Confirm password</label>
+    <input id="pw2" name="password_confirm" type="password">
+    <label for="cc">Card number</label>
+    <input id="cc" name="cc-number" autocomplete="cc-number">
+    <label for="exp">Expiry</label>
+    <input id="exp" name="cc-exp" autocomplete="cc-exp" placeholder="MM/YY">
+    <label for="cvc">CVC</label>
+    <input id="cvc" name="cvc" autocomplete="cc-csc" class="error" aria-invalid="true">
+    <label for="zip">ZIP</label>
+    <input id="zip" name="postal" autocomplete="postal-code">
+    <label for="plan">Plan colour theme</label>
+    <select id="plan" name="theme"><option>Green</option><option>Mustard</option><option>Terracotta</option></select>
+    <button type="submit">Sign up</button>
+  </form>
+  <aside class="ad">
+    <h3>Book a ride to test our new Ferrari</h3>
+    <p>Only from $300 per day</p>
+    <button type="button">Book now</button>
+  </aside>
+</div>
+</body>
+</html>

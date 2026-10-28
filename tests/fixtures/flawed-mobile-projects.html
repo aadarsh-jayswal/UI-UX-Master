@@ -1,0 +1,45 @@
+<!doctype html>
+<!-- AUTHORED TEST FIXTURE (not from the PDF): deliberately flawed mobile screen reproducing mistakes the PDF illustrates. View at about 390px wide. See tests/expected.json. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixture: flawed mobile projects</title>
+<style>
+  body { margin: 0; font-family: Inter, Arial, sans-serif; background: #ffffff; color: #1a1a1a; }
+  header { display: flex; justify-content: space-between; align-items: center; padding: 16px; }
+  header button { padding: 10px 18px; border: 0; border-radius: 20px; background: #7c3aed; color: #fff; font-size: 15px; }
+  h1 { font-size: 26px; line-height: 1.7; margin: 0 16px 8px; font-weight: 700; }
+  .lead { margin: 0 16px; font-size: 15px; line-height: 1.15; font-weight: 200; color: #555; }
+  .empty { margin: 120px 16px; text-align: center; font-size: 16px; }
+  .tiles { display: flex; gap: 16px; padding: 16px; }
+  .tile { flex: 1; border: 1px solid #e5e5e5; border-radius: 12px; padding: 16px; display: grid; place-items: center; gap: 8px; }
+  .tile button { width: 40px; height: 24px; border-radius: 12px; border: 0; background: #ddd; }
+  .tile.square { border-radius: 0; }
+  dialog { border: 0; border-radius: 16px; background: #221c33; color: #fff; padding: 24px; width: 300px; }
+  dialog p { color: #bdb7cc; }
+  dialog .row { display: flex; gap: 16px; justify-content: center; }
+  dialog .del { padding: 10px 24px; border: 0; border-radius: 20px; background: #20a35a; color: #fff; }
+  dialog .cancel { padding: 10px 24px; border: 0; background: transparent; color: #fff; }
+</style>
+</head>
+<body>
+<header>
+  <strong>Projects</strong>
+  <button>Sign in</button>
+</header>
+<h1>Your projects and everything you planned</h1>
+<p class="lead">All of your team's projects appear here once you or a teammate creates one; projects keep tasks, files, deadlines and conversations together in one place.</p>
+<div class="tiles">
+  <div class="tile"><span aria-hidden="true">🔒</span><button aria-label="Toggle security"></button></div>
+  <div class="tile square"><span aria-hidden="true">💡</span><button aria-label="Toggle lights"></button></div>
+  <div class="tile"><span aria-hidden="true">❄️</span><button aria-label="Toggle air conditioning"></button></div>
+</div>
+<div class="empty">You have no projects!</div>
+<dialog open>
+  <h3>Are you sure you want to delete your data?</h3>
+  <p>This action can't be undone.</p>
+  <div class="row"><button class="del">Delete</button><button class="cancel">Cancel</button></div>
+</dialog>
+</body>
+</html>
